@@ -1,0 +1,61 @@
+th{
+  background-color: #EDEDED;
+}
+
+.table-striped tbody tr:nth-child(odd) td {
+  background-color: white;
+}
+
+.table-striped tbody tr:nth-child(even) td {
+  background-color: #FFFFF2;
+}
+
+.menu-button-checkbox:checked ~ a {
+    display: block;   /*當checked時選擇.menu並用block方式顯示*/
+}
+
+
+.form-group {
+  display: block;
+  width: 100%;
+  height: 40px;
+}
+
+.form-group .btn { 
+    border:3px orange double;
+    background-color:#FFF7E8;
+    margin-right: 10%; 
+  }
+
+
+
+hr.style13 {
+  height: 10px;
+  border: 0;
+  box-shadow: 0 10px 10px -10px #8c8b8b inset;
+}
+
+@media screen and (max-width: 768px) {
+  .th_desc, 
+  .td_desc {
+    display: none;                      /*在ipad版時隱藏描述*/
+  }
+
+  .form-group .btn { 
+    margin-right: 35%; 
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .th_due, 
+  .td_due,
+  .th_desc, 
+  .td_desc {
+    display: none;                      /*在手機版時隱藏描述跟日期*/
+  }
+
+  .form-group .btn { 
+    margin-right: 35%; 
+  }
+}
+

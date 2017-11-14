@@ -1,0 +1,36 @@
+<%= stylesheet_link_tag "/todo-list-app/assets/stylesheets/import_css.css" %>
+
+<table class="table table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col", style='text-align:center;vertical-align:middle'> 已完成 </th>
+          <th scope="col", style='text-align:center;vertical-align:middle'> 名稱 </th>
+          <th class="th_due", scope="col", style='text-align:center;vertical-align:middle'> 結束時間 </th>
+          <th class="th_desc", scope="col", style='text-align:center;vertical-align:middle'> 描述 </th>
+          <th scope="col", style='text-align:center;vertical-align:middle'> 顯示 </th>
+          <th scope="col", style='text-align:center;vertical-align:middle'> 修改 </th>
+          <th scope="col", style='text-align:center;vertical-align:middle'> 刪除 </th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @todos.each do |todo| %>
+        <tr>
+          <td style='text-align:center;vertical-align:middle'><%= check_box_tag 'finished', '1', todo.finished %></td>
+          <td style='text-align:center;vertical-align:middle'><%= todo.name %></td>
+          <td class="td_due", style='text-align:center;vertical-align:middle'><%= todo.due_date %></td>
+          <td class="td_desc", style='text-align:center;vertical-align:middle'><%= todo.desc %></td>
+          <td style='text-align:center;vertical-align:middle'><%= link_to 'Show', todo_path(todo) %></td>
+          <td style='text-align:center;vertical-align:middle'><%= link_to 'Edit', edit_todo_path(todo) %></td>
+          <td style='text-align:center;vertical-align:middle'><%= link_to 'Destroy', todo_path(todo), method: :delete, data:{ confirm: "Are you sure?" } %></td>
+        </tr>
+      <% end %>
+      </tbody>
+</table>
+
+<hr class="style13">
+
+<div class="form-group">
+<button type="button" class="btn pull-right"><%= link_to '新增待辦事項', new_todo_path %></button>
+</div>
+
+<p><%= flash[:alert] %></p>
